@@ -1,0 +1,49 @@
+*
+{
+	margin :0px;
+}
+
+h1{
+	background-color: grey;
+}
+
+#header
+{
+	height:20%;
+	background-color:black;
+	color:white;
+	text-align: right;
+}
+
+#container_command
+{
+	height:600px;
+	background-color:#292929; 
+	color: white;
+}
+#command
+{
+	width:50%;
+	height:100%;
+	float:left;
+	border-right: 1px solid black;
+}
+#output
+{	
+	width:40%;
+	height: 100%;
+	float:left;
+	color: white;
+	padding-left: 2px;
+}
+table
+{
+	text-align: center;
+}
+#footer
+{
+	text-align: center;
+	clear:left;
+	background-color: black;
+	color: white;
+}
