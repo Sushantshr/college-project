@@ -1,0 +1,11 @@
+
+
+RewriteEngine on
+
+RewriteRule ^home home.php
+
+<FilesMatch "^mainclass.php">
+Order Deny,Allow
+Deny from All
+Allow from env=REDIRECT_STATUS
+</FilesMatch>
