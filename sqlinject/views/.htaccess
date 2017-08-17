@@ -1,0 +1,12 @@
+
+Options -Indexes
+RewriteEngine on
+
+RewriteRule ^home.crypt home_page.php
+RewriteRule insertuser insert.php
+RewriteRule getid show_id.php
+RewriteRule analysisinsert insertanalysis.php
+RewriteRule ^analysisinsert.$ insertanalysis.php?page=$1
+RewriteRule ^analysisget.$ getanalysis.php?page=$1
+RewriteRule analysisget getanalysis.php
+

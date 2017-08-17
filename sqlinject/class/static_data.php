@@ -1,8 +1,7 @@
-
 <?php
+	
+class StaticData{
 
-class DB
-{
 	private $hostname = 'localhost';
 	private $dbuser = 'root';
 	private $dbpass = '';
@@ -21,27 +20,11 @@ class DB
 		$this->conn = new mysqli($this->hostname,$this->dbuser,$this->dbpass,$this->dbname);
 	}
 
-
-//get the input
-	public function get_id($username, $password)
+// check username and password
+	public function get_data($username, $password)
 	{
 		$username = $this->conn->real_escape_string($username);
 		$password = $this->conn->real_escape_string($password);
-
-		$detect_on_username = $this->detect($username); 
-		$detect_on_password = $this->detect($password);
-
-		if( $detect_on_username == null && $detect_on_password == null)
-		{
-			return $this->get_data($username, $password);
-		}
-		else
-			return "On username:".$detect_on_username."<br>On password:".$detect_on_password;
-	}
-
-//get actual data
-	public function get_data($username, $password)
-	{
 		$query = "Select * from userid where username = '".$username."' and password = '".$password."'";// select query
 			if($this->conn->query($query))
 			{
@@ -50,12 +33,24 @@ class DB
 				if($result->num_rows>0)// check for rows to return
 					return $row['id'];
 				else
-					return "Incorrect username or password";//if no rows are found
+					return "Incorrect username and password";//if no rows are found
 			}
 			else
 				return "Query error";
 	}
 
+
+	public function getstatic_data($username, $password)
+	{
+		$detect_on_username = $this->detect($username);
+		$detect_on_password = $this->detect($password);
+		if($detect_on_username==null&&$detect_on_password==null)
+		{
+			return $this->get_data($username, $password);
+		}
+		else
+			return "On username:".$detect_on_username."<br>On password:".$detect_on_password;
+	}	
 
 //detect inputs
 	public function detect($query)
@@ -76,7 +71,7 @@ class DB
 	public function detect_logical($query)
 	{
 		$return = 0;
-		$detect = array("or", "and");
+		$detect = array("or", "and", "||", "&&");
 		$split = explode(" ", $query);		
 		$size = sizeof($split);
 		echo strcmp(strtolower($split[0]),$detect[0]);
@@ -137,6 +132,6 @@ class DB
 		return $return;
 	}
 
-}
+	}
 
 ?>

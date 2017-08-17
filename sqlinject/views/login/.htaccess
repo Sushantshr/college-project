@@ -1,0 +1,8 @@
+
+RewriteEngine on
+
+Options -Indexes
+
+RewriteRule userlogin login.php
+RewriteRule userlogout logout.php
+

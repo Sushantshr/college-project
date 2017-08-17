@@ -1,19 +1,8 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<?php include('bootstraplinks.php');?>
-	<link rel="stylesheet" type="text/css" href="sqlstyle.css">
-</head>
-<body class="container" style="background-color: #292929;color:white;">
-<div class="container jumbotron">
-<h1 style="color:black">Get the id from the form</h1>
-</div>
+<?php include("includes/header.php"); ?>
 
 <div class="container text-center">
 <div class="row">
-		<form method="POST" action="getid.php" class="form-horizontal">
+		<form method="POST" action="get_id.php" class="form-horizontal">
 		<div class="form-group">	
 			<label class="col-sm-2 control-label">Username</label>
 			<div class=" col-sm-4"><input type="text" name="username" class="form-control" required></div>
@@ -22,7 +11,7 @@
 			<label class="col-sm-2 control-label">password</label>
 			<div class=" col-sm-4"><input type="password" name="password" class="form-control" required></div>
 		</div>
-			<div class="col-sm-6"><input type="submit" class = "btn btn-default" name="submit" value="View"></div>
+			<div class="col-sm-6"><input type="submit" class = "btn btn-default" name="id_submit" value="View"></div>
 		</form>
 </div>
 </div>
@@ -67,5 +56,5 @@
 		?>
 	
 </div>
-</body>
-</html>
+
+<?php include("includes/footer.php"); ?>
